@@ -1,4 +1,5 @@
-#include <iostream>
+#include<iostream>
+#include<fungsi.cpp>
 using namespace std;
 
 struct {
@@ -7,18 +8,6 @@ struct {
 	int kllg;
 	int luas;
 }jajargenjang;
-
-
-void luasjajargenjang(){
-	jajargenjang.luas= jajargenjang.pjg*jajargenjang.lbr;
-	printf("luas jajargenjang anda adalah : %d \n",jajargenjang.luas);
-}
-
-void kelilingjajargenjang(){
-	jajargenjang.kllg=2*(jajargenjang.pjg*jajargenjang.lbr);
-	printf("keliling jajargenjang anda adalah ; %d \n",jajargenjang.kllg);
-	
-}
 
 int main(){
 printf("**************************************************\n");
