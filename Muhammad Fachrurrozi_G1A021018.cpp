@@ -1,28 +1,59 @@
-#include<iostream>
-#include<fungsi.cpp>
-using namespace std;
+#include <iostream>
 
-struct {
-	int pjg;
-	int lbr;
-	int kllg;
-	int luas;
-}jajargenjang;
+// Definisi Abstrak Data Type (ADT) Jajargenjang
+class Jajargenjang {
+public:
+    // Metode untuk mengatur panjang dan lebar jajargenjang
+    virtual void setPanjang(double p) = 0;
+    virtual void setLebar(double l) = 0;
 
-int main(){
-printf("**************************************************\n");
-printf("*             Welcome to my Program              *\n");
-printf("*   Menghitung Luas dan Keliling jajargenjang    *\n");
-printf("**************************************************\n");
-printf("*           oleh Muhammad Fachrurrozi            *\n");
-printf("**************************************************\n");
-printf("*               NPM: G1A021018                   *\n");
-printf("Masukkan panjang dari jajargenjang = ");scanf("%d", &jajargenjang.pjg);
-printf("Masukkan lebar dari jajargenjang = ");scanf("%d", &jajargenjang.lbr);
-printf("**************************************************\n");
-luasjajargenjang();
-kelilingjajargenjang();
-printf("**************************************************\n");
-return 0;
+    // Metode untuk menghitung luas dan keliling jajargenjang
+    virtual double hitungLuas() = 0;
+    virtual double hitungKeliling() = 0;
+};
 
+// Implementasi ADT Jajargenjang
+class JajargenjangImpl : public Jajargenjang {
+private:
+    double panjang;
+    double lebar;
+
+public:
+    // Konstruktor
+    JajargenjangImpl() : panjang(0), lebar(0) {}
+
+    // Metode untuk mengatur panjang jajargenjang
+    void setPanjang(double p) {
+        panjang = p;
+    }
+
+    // Metode untuk mengatur lebar jajargenjang
+    void setLebar(double l) {
+        lebar = l;
+    }
+
+    // Metode untuk menghitung luas jajargenjang
+    double hitungLuas() {
+        return panjang * lebar;
+    }
+
+    // Metode untuk menghitung keliling jajargenjang
+    double hitungKeliling() {
+        return 2 * (panjang + lebar);
+    }
+};
+
+int main() {
+    // Membuat objek jajargenjang
+    JajargenjangImpl jajargenjang;
+
+    // Mengatur panjang dan lebar jajargenjang
+    jajargenjang.setPanjang(5.0);
+    jajargenjang.setLebar(3.0);
+
+    // Menghitung dan menampilkan luas dan keliling jajargenjang
+    std::cout << "Luas Jajargenjang: " << jajargenjang.hitungLuas() << std::endl;
+    std::cout << "Keliling Jajargenjang: " << jajargenjang.hitungKeliling() << std::endl;
+
+    return 0;
 }
